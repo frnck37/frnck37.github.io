@@ -202,21 +202,30 @@
 
         <link rel="stylesheet" href="jquery.vidbacking.css" type="text/css">
 
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+       
+        <script src="jquery.vidbacking.js"></script>
     </head>
 
     <body>
-        <!-- Navigation (Stays on Top) -->
         <div id="w3-menu-container" class="w3-bar w3-center">
-            <!-- Your W3.CSS sidenav goes here -->
-
-            <a href="index.html" class="w3-button"><img src="iss4.png" height="50px" width="40px"></img></a>
-            <a href="space-astro.html" class="w3-button"><img src="cosmo.png" height="50px"
-                    width="40px"></img></span></a>
-            <a href="lancements.html" class="w3-button"><img src="fusée.png" height="50px" width="40px"></img></a>
-            <a href="exo-arecibo.html" class="w3-button"><img src="saturne.png" height="50px" width="40px"></img></a>
-            <a href="apod.html" class="w3-button"><img src="telescope.png" height="50px" width="40px"></img></a>
-
+            <a href="index.html" class="w3-button"><img src="iss4.png" height="50px" width="40px" alt="ISS"></a>
+            <a href="space-astro.html" class="w3-button"><img src="cosmo.png" height="50px" width="40px"
+                    alt="Space"></a>
+            <a href="lancements.html" class="w3-button"><img src="fusée.png" height="50px" width="40px"
+                    alt="Launches"></a>
+            <a href="exo-arecibo.html" class="w3-button"><img src="saturne.png" height="50px" width="40px"
+                    alt="Exoplanets"></a>
+            <a href="apod.html" class="w3-button"><img src="telescope.png" height="50px" width="40px" alt="APOD"></a>
         </div>
+
+        <div id="main" class="w3-mobile">
+            <!-- video background        -->
+            <video poster="starryNight2.jpeg" autoplay muted loop class="vidbacking">
+                <source src="spacevid.mp4" type="video/mp4">
+                <source src="spacevid.webm" type="video/webm">
+            </video>
 
             <script src="https://code.jquery.com/jquery-3.2.1.min.js"
                 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -228,6 +237,7 @@
                     });
                 });
             </script>
+
 
         <button onclick="topFunction()" id="myBtn" title="Go to top" class="fa fa-chevron-circle-up"></button>
 
@@ -337,7 +347,7 @@
 </div>
 
 
-<script src="ztext.js"></script>
+
 
 <script>
     // Get the button
@@ -364,7 +374,7 @@
 <!-- Add necessary scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
+<script> src="jquery.vidbacking.js"></script>
 <script>
     includeHTML();
     </script>
