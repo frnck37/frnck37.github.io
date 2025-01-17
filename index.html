@@ -208,7 +208,7 @@
             // Fetch user's geolocation and update the marker
             function fetchUserLocation() {
                 return new Promise((resolve, reject) => {
-                    $.getJSON('https://corsproxy.io/?https://geolocation-db.com/json/')
+                    $.getJSON('https://geolocation-db.com/json/')
                         .done(function (location) {
                             // Fetch geolocation data and update the page elements
                             document.getElementById('country').textContent = location.country_name;
