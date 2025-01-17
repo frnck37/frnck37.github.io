@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Crédits Open Source - Space Infos, latest Space Astronauts flights and vessels launches</title>
+	<link rel="stylesheet" href="w3.css">
+	<style>
+		html,
+		body {
+
+			margin: 0px;
+			width: 100%;
+			height: 100%;
+		}
+
+
+		#earth_div {
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			position: absolute !important;
+		}
+
+		.test {
+			font-family: 'Orbitron', sans-serif;
+			font-size: xx-large;
+
+		}
+
+		.ip {
+			font-family: 'Orbitron', sans-serif;
+			font-size: x-small;
+			color: azure;
+			outline: 2px ridge rgba(161, 134, 238, 0.6);
+			border-radius: 0.5rem;
+			margin: 0px;
+			width: fit-content;
+
+		}
+
+		.test2 {
+			font-family: 'Orbitron', sans-serif;
+			font-size: x-large;
+			color: floralwhite;
+
+		}
+
+		.testc {
+			font-family: 'Orbitron', sans-serif;
+			font-size: medium;
+			color: rgb(210, 220, 205);
+
+		}
+
+
+
+		.artout {
+			outline: 8px ridge rgba(161, 134, 238, 0.6);
+			border-radius: 0.5rem;
+			margin: 0px;
+			width: fit-content;
+
+		}
+
+		.menop {
+			background: rgba(139, 14, 145, 0.01);
+
+			-moz-opacity: 0.1;
+			-khtml-opacity: 0.1;
+			opacity: 0.9;
+		}
+
+		.gif {
+			width: auto;
+			height: auto;
+			object-fit: contain;
+			/* Maintain aspect ratio and cover the container */
+			margin: 0 auto;
+			/* Center the image horizontally */
+		}
+
+
+
+		#w3-menu-container {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			background-color: #333;
+			z-index: 1000;
+
+		}
+
+		#main-content-container {
+			margin-top: 40px;
+			/* Adjust this margin based on your menu height */
+		}
+
+		#spaceflight-news-container {
+			margin-top: 20px;
+		}
+	</style>
+
+	<link rel="stylesheet" href="space.css" type="text/css">
+
+	<link rel="stylesheet" href="jquery.vidbacking.css" type="text/css">
+</head>
+
+<body>
+	<!-- Navigation (Stays on Top) -->
+	<div id="w3-menu-container" class="w3-bar w3-center w3-transparent">
+		<!-- Your W3.CSS sidenav goes here -->
+
+		<a href="index.html" class="w3-button"><img src="iss4.png" height="50px" width="40px"></img></a>
+		<a href="space-astro.html" class="w3-button"><img src="cosmo.png" height="50px" width="40px"></img></span></a>
+		<a href="lancements.html" class="w3-button"><img src="fusée.png" height="50px" width="40px"></img></a>
+		<a href="exo-arecibo.html" class="w3-button"><img src="saturne.png" height="50px" width="40px"></img></a>
+		<a href="apod.html" class="w3-button"><img src="telescope.png" height="50px" width="40px"></img></a>
+        </div>
+
+        <!-- Start Content -->
+        <div id="main" class="w3-mobile">
+            <!-- video background        -->
+            <video poster="starryNight2.jpeg" autoplay muted loop class="vidbacking">
+                <source src="spacevid.mp4" type="video/mp4">
+                <source src="spacevid.webm" type="video/webm">
+            </video>
+
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+            <script src="jquery.vidbacking.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                $(function () {
+                    $('body').vidbacking({
+                        'masked': false
+                    });
+                });
+            </script>
+			<div class="gtranslate_wrapper"></div>
+			<script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"detect_browser_language":true,"globe_color":"#66aaff","wrapper_selector":".gtranslate_wrapper","flag_size":16,"horizontal_position":"left","vertical_position":"bottom"}</script>
+			<script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
+
+            <div class="w3-auto w3-row "><br>
+                <p class="test2"> Credits , ressources :</p><br><br>
+
+                <p class="artout text-bl"> <a href="https://api.nasa.gov/planetary/apod" class="w3-tag w3-small">NASA
+                        ApoD API</a></p><br>
+                <p class="artout text-bl"> <a href="https://phl.upr.edu/home" class="w3-tag w3-small">ARECIBO Planetary
+                        Hability Laboratory</a></p><br>
+                <p class="artout text-bl"> <a href="https://thespacedevs.com/snapi" class="w3-tag w3-small">The Space
+                        Devs API'S</a></p><br>
+                <p class="artout text-bl"> <a href="http://api.open-notify.org" class="w3-tag w3-small">The Open-notify
+                        API</a></p><br>
+                <p class="artout text-bl"> <a href="https://www.w3schools.com/w3css/w3css_downloads.asp"
+                        class="w3-tag w3-small">The W3 CSS framework</a></p><br>
+                <p class="artout text-bl"> <a href="https://github.com/souravm84/vidbacking"
+                        class="w3-tag w3-small">JQuery Vidbacking Plugin</a></p><br>
+                <p class="artout text-bl"> <a href="https://bennettfeely.com/ztext/" class="w3-tag w3-small">JQuery
+                        Ztext Plugin</a></p><br>
+                <p class="artout text-bl"> <a href="https://webglearth.com/v2/api.js" class="w3-tag w3-small">Webglearth
+                        API</a></p><br>
+
+            </div>
+
+
+            <div class="w3-center ">
+                <p>-------------</p>
+                <p class="w3-container  artout w3-light-blue test2"><b>FABRIQUEZ VOTRE ASTRO-WATCH :</b></p><br>
+                
+                <p class="w3-container  w3-center w3-auto artout gif"><iframe src="https://frnck.w3spaces.com/" height="600px" width="400px"></iframe></p><br>
+                <p class="testc artout w3-light-blue"><br>Fabriquez votre "astro-notifier", qui vous tiendra informé des <b>astronautes en vol</b> à bord de l'ISS.<br><br>Téléchargez les fichiers de  code
+                        C++ </b>utilisable sur l'IDE Arduino. Versions pour ESP8266NodemCu, WifiKit8 (<i>exemple de la
+                    photo sur montre à gousset</i>), et sur WemosD1, avec écrans Oled 0,96 ou Tft 1,8pouces.</p><br><br>
+                <p class="w3-container w3-button w3-auto w3-white artout"><a href="https://github.com/frnck37/astronauts-notifier">
+                        --> "ASTRO-NOTIFIER" sur GitHub.</a></p>
+                </p><br>
+
+                    <p class="w3-container  w3-center w3-auto artout gif"><img src="watch.jpeg" height="80%" width="80%"></img></p>
+                <p class="w3-container  w3-center w3-auto artout gif"><img src="watch2.jpeg" height="80%" width="80%"></img></p>
+
+            </div>
+
+
+            <div class="w3-center"><br>
+           
+                <script src="https://liberapay.com/franck/widgets/receiving.js"></script>
+            </div>
+            <br>
+            <div class="w3-center">
+                <form action="https://www.paypal.com/donate" method="post" target="_top">
+                    <input type="hidden" name="hosted_button_id" value="F7K5RN2U97K4L" />
+                    <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donateCC_LG.gif"
+                        border="0" name="submit" title="PayPal - The safer, easier way to pay online!"
+                        alt="Bouton Faites un don avec PayPal" />
+                    <img alt="" border="0" src="https://www.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1" />
+                </form>
+            </div>
+            <script>
+                includeHTML();
+            </script>
+    </body>
+
+</html>

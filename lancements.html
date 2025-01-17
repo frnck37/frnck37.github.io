@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Infos de l'API Lancements spatiaux à venir - infos et images" />
+    <link rel="stylesheet" href="w3.css">
+    <title>lancements spatiaux </title>
+    <style>
+      .map-image {
+        width: 300px;
+        height: 250px;
+        object-fit: cover;
+        /* Maintain aspect ratio and cover the container */
+      }
+
+      html,
+      body {
+
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        /* background-image: url("starryNight2.jpeg");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed; */
+      }
+
+      .test {
+        font-family: 'Orbitron', sans-serif;
+        font-size: xx-large;
+
+      }
+
+      .test2 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: x-large;
+
+      }
+
+      .test3 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 20px;
+
+      }
+
+      .effect {
+        fill: none;
+        stroke: rgb(1, 7, 8);
+        stroke-width: .5px;
+        stroke-linejoin: round;
+        stroke-dasharray: 90% 10%;
+        stroke-width: 8px;
+        stroke-dashoffset: 0%;
+        animation: stroke-offset 6.5s linear infinite;
+      }
+
+      @keyframes stroke-offset {
+        100% {
+          stroke-dashoffset: -35%;
+        }
+      }
+      }
+
+      /* Demo Styles */
+      .z-text {
+        animation: wobble 10s ease-in-out infinite;
+        transform: rotateX(30deg) rotateY(-30deg);
+      }
+
+      .z-layer {
+        filter: brightness(0.7);
+      }
+
+      .z-layer:first-child {
+        filter: brightness(1);
+      }
+
+
+      .z-layer:not(:first-child) {
+        filter: brightness(0.7);
+      }
+
+      @keyframes wobble {
+
+        0%,
+        100% {
+          transform: rotate3d(-1, 1, 0, 30deg);
+        }
+
+        25% {
+          transform: rotate3d(1, 1, 0, 30deg);
+        }
+
+        50% {
+          transform: rotate3d(1, -1, 0, 30deg);
+        }
+
+        75% {
+          transform: rotate3d(-1, -1, 0, 30deg);
+        }
+      }
+
+
+
+
+      .astronaut-image {
+        width: 200px;
+        height: 280px;
+        object-fit: contain;
+        /* Maintain aspect ratio and cover the container */
+        margin: 0 auto;
+        /* Center the image horizontally */
+      }
+
+      .logo-image {
+        width: 25%;
+        height: 25%;
+        object-fit: cover;
+        /* Maintain aspect ratio and cover the container */
+        margin: 0 auto;
+        /* Center the image horizontally */
+      }
+
+      h2 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: x-large;
+      }
+
+
+      .trans {
+        -moz-opacity: 0.9;
+        -khtml-opacity: 0.9;
+        opacity: 0.9;
+
+      }
+
+      .artout {
+        outline: 8px ridge rgba(161, 134, 238, 0.6);
+        border-radius: 2rem;
+        margin: 0px;
+      }
+
+      .small-button {
+        width: 50px;
+        height: 20px;
+        font-size: 16px;
+      }
+
+      .typing-demo {
+        width: 15ch;
+        animation: typing 3s steps(22), blink .5s step-end infinite alternate;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid;
+        font-family: 'Orbitron', sans-serif;
+        font-size: medium;
+        color: black;
+
+      }
+
+      @keyframes typing {
+        from {
+          width: 0
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent
+        }
+      }
+      
+  #myBtn {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  right: 25px;
+  z-index: 99;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: rgb(14, 14, 14);
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+    </style>
+
+    <link rel="stylesheet" href="./space.css" type="text/css">
+    <link rel="stylesheet" href="./w3.css" type="text/css">
+
+
+    <!-- Use any element to open the sidenav -->
+
+    <link rel="stylesheet"
+    href="jquery.vidbacking.css" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script>
+      // Get the button
+      let mybutton = document.getElementById("myBtn");
+      
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      </script>
+  </head>
+  
+  <body>  
+      <button onclick="topFunction()" id="myBtn" title="Go to top"  class="fa fa-chevron-circle-up"></button>
+         <div id="w3-menu-container" class="w3-bar w3-center">
+            <!-- Your W3.CSS sidenav goes here -->   
+            <a href="index.html" class="w3-button"><img src="iss4.png" height="50px" width="40px"></img></a>
+            <a href="space-astro.html" class="w3-button"><img src="cosmo.png" height="50px" width="40px"></img></span></a>
+            <a href="lancements.html" class="w3-button"><img src="fusée.png" height="50px" width="40px"></img></a>
+            <a href="exo-arecibo.html" class="w3-button"><img src="saturne.png" height="50px" width="40px"></img></a>
+            <a href="apod.html" class="w3-button"><img src="telescope.png" height="50px" width="40px"></img></a>
+        </div>
+    
+
+    
+    <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = { "default_language": "en", "native_language_names": true, "wrapper_selector": ".gtranslate_wrapper", "flag_size": 16, "switcher_horizontal_position": "left", "switcher_vertical_position": "bottom", "flag_style": "3d" }</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/dwf.js" defer></script>
+
+    <!-- Navigation (Stays on Top) -->
+    <div id="main">
+      <video poster="starryNight2.jpeg" autoplay muted loop class="vidbacking">
+        <source src="spacevid.mp4" type="video/mp4">
+        <source src="spacevid.webm" type="video/webm">
+      </video>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="jquery.vidbacking.js"
+        type="text/javascript"></script>
+      <script type="text/javascript">
+        $(function () {
+          $('body').vidbacking({
+            'masked': false
+          });
+        });
+      </script>
+
+      
+      <!-- Start Content -->
+      <div class="w3-content w3-mobile w3-row w3-auto">
+        
+        
+        <p class="  effect w3-large w3-center w3-animate-zoom w3-text-white typing-demo w3-mobile">
+          Lancements en cours</p>
+          
+          
+          <div id="launch"></div>
+        </div>
+
+      <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://ll.thespacedevs.com/2.2.0/launch/upcoming/', true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            var data = JSON.parse(xhr.responseText);
+            let count = data.results.length;
+            var html = '<ul>';
+            for (var i = 0; i < data.results.length; i++) {
+              html += '<br>';
+              html += '<div class="trans w3-container w3-mobile  w3-sand  w3-animate-zoom artout ">';
+              html += '<p><strong class="test3 w3-center">Lanceur : </strong><a class="w3-tag w3-round-xlarge">' + data.results[i].name + '</a></p>';
+              html += '<p><strong class="test3">Statut : </strong><br><a class="w3-text-red w3-animate-fading w3-center"><b>' + data.results[i].status.name + '<b></a></p>';
+              html += '<p><strong class="test3">Date : </strong>' + data.results[i].net + '</p>';
+              html += '<p><strong class="test3">Opérateur : </strong><b>' + data.results[i].launch_service_provider.name + '</b></p>';
+              html += '<p><strong class="test3">Objectif : </strong>' + data.results[i].mission.type + '</p>';
+              html += '<p><strong class="test3">Mission : </strong><a>' + data.results[i].mission.description + '</a></p>';
+              html += '<p><strong class="test3">Orbite de mission : </strong>' + data.results[i].mission.orbit.name + '</p>';
+              html += '<p><strong class="test3">Pad de lancement : </strong>' + data.results[i].pad.location.name + '</p>';
+              html += '<p><strong class="test3">Image : </strong><img src="' + data.results[i].image + '" width="80%" height="80%"></p>';
+              html += '<p><strong class="test3">Carte : </strong><a href="' + data.results[i].pad.map_url + '" target="_blank"> ===> </a></p>';
+              html += '<p><strong class="test3">Live : </strong>' + data.results[i].webcast_live + '</p>';
+              html += '</div>';
+              
+            }
+            html += '</ul>';
+
+            document.getElementById("launch").innerHTML = html;
+
+            
+          }
+        };
+
+        xhr.send();
+      </script>
+
+
+    </div>
+
+
+    <script>
+      includeHTML();
+    </script>
+
+  </body>
+
+</html>

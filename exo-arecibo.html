@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="description" content="Exoplanètes habitables - Arecibo" />
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <title>Exoplanètes habitables - Arecibo</title>
+        <style>
+            #myImg {
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            #myImg:hover {
+                opacity: 0.7;
+            }
+
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                /* Hidden by default */
+                position: fixed;
+                /* Stay in place */
+                z-index: 1;
+                /* Sit on top */
+                padding-top: 100px;
+                /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%;
+                /* Full width */
+                height: 100%;
+                /* Full height */
+                overflow: auto;
+                /* Enable scroll if needed */
+                background-color: rgb(0, 0, 0);
+                /* Fallback color */
+                background-color: rgba(0, 0, 0, 0.9);
+                /* Black w/ opacity */
+            }
+
+            /* Modal Content (image) */
+            .modal-content {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+            }
+
+            /* Caption of Modal Image */
+            #caption {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+                color: #ccc;
+                padding: 10px 0;
+                height: 150px;
+            }
+
+            /* Add Animation */
+            .modal-content,
+            #caption {
+                animation-name: zoom;
+                animation-duration: 0.6s;
+            }
+
+            @keyframes zoom {
+                from {
+                    transform: scale(0.1)
+                }
+
+                to {
+                    transform: scale(1)
+                }
+            }
+
+            /* The Close Button */
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            /* 100% Image Width on Smaller Screens */
+            @media only screen and (max-width: 700px) {
+                .modal-content {
+                    width: 100%;
+                }
+            }
+
+            html,
+            body {
+                margin: 10px;
+                width: 100%;
+                height: 180%;
+               background: url(starryNight2.jpeg) no-repeat center/cover;
+            }
+
+            h2 {
+                font-family: 'Orbitron', sans-serif;
+                font-size: xx-large;
+                text-decoration: underline;
+                color: rgb(4, 4, 61);
+            }
+
+
+
+            .test {
+                font-family: 'Orbitron', sans-serif;
+                font-size: xx-large;
+                color: rgb(0, 0, 0);
+            }
+
+            .test2 {
+                font-family: 'Orbitron', sans-serif;
+                font-size: x-large;
+                color: aquamarine;
+            }
+
+            .test3 {
+                font-family: 'Orbitron', sans-serif;
+                font-size: medium;
+                color: black;
+            }
+
+            .test4 {
+                font-family: 'Rubik Doodle Triangles', system-ui;
+                font-size: xx-large;
+                color: black;
+            }
+
+            .test5 {
+                font-family: 'Orbitron', sans-serif;
+                font-size: xx-large;
+                color: black;
+
+            }
+
+            .test6 {
+                font-family: 'Architects Daughter', cursive;
+                font-size: 21px;
+                color: black;
+            }
+
+        
+
+            .trans {
+                background-color: silver;
+                -moz-opacity: 0.9;
+                -khtml-opacity: 0.9;
+                opacity: 0.9;
+            }
+
+            .trans2 {
+                -moz-opacity: 0.95;
+                -khtml-opacity: 0.95;
+                opacity: 0.95;
+            }
+
+
+            .artout {
+                outline: 8px ridge rgba(161, 134, 238, 0.6);
+                border-radius: 2rem;
+                margin: 8px;
+            }
+        </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat+Brush&family=Homemade+Apple&family=Orbitron:wght@600;700&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Space infos by Cyclotronic index" />
+        <meta name="keywords"
+            content="cyclotronic.fr.nf, space infos web site // web app : astronautes , lancements, exoplanètes, space news" />
+        <meta name="author" content="Franck Dandault - frnck.fr.nf - CYCLOTRONIC 2023" />
+
+        <title>SPACE INFOS index</title>
+
+        <link rel="stylesheet" href="./w3.css" type="text/css">
+
+        <link rel="stylesheet" href="./space.css" type="text/css">
+        <link rel="stylesheet"
+            href="jquery.vidbacking.css"
+            type="text/css">
+
+
+
+
+
+        <!-- Use any element to open the sidenav -->
+       
+        <link rel="stylesheet"
+            href="jquery.vidbacking.css"
+            type="text/css">
+
+    </head>
+
+    <body>
+
+        <!-- Navigation (Stays on Top) -->
+           <div id="w3-menu-container" class="w3-bar w3-center">
+            <!-- Your W3.CSS sidenav goes here -->          
+           
+            <a href="index.html" class="w3-button"><img src="iss4.png" height="40px" width="30px"></img></a>
+            <a href="space-astro.html" class="w3-button"><img src="cosmo.png" height="40px" width="30px"></img></a>
+            <a href="lancements.html" class="w3-button"><img src="fusée.png" height="40px" width="30px"></img></a>
+            <a href="exo-arecibo.html" class="w3-button"><img src="saturne.png" height="40px" width="30px"></img></a>
+            <a href="apod.html" class="w3-button"><img src="telescope.png" height="40px" width="30px"></img></a>
+
+        </div>
+        <div id="main">
+            <video poster="starryNight2.jpeg" autoplay muted loop class="vidbacking">
+                <source src="spacevid.mp4" type="video/mp4">
+                <source src="spacevid.webm" type="video/webm">
+            </video>
+
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+            <script src="jquery.vidbacking.js"
+                type="text/javascript"></script>
+            <script type="text/javascript">
+                $(function () {
+                    $('body').vidbacking({
+                        'masked': false
+                    });
+                });
+            </script>
+
+
+
+
+            <!-- Start Content -->
+            <div class="w3-content w3-mobile  w3-row w3-auto">
+
+
+                <div id="statisticsData">
+                    <p>Loading data...</p>
+                </div>
+
+
+
+                <script>
+                    async function fetchData() {
+                        const apiUrl = "https://corsproxy.org/?https://exoplanethunter.com/api/Statistics";
+
+                        try {
+                            const response = await fetch(apiUrl);
+                            const data = await response.json();
+
+                            const statisticsContainer = document.getElementById("statisticsData");
+                            statisticsContainer.innerHTML = `
+                                     
+                            <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans  test"><p><h2>Exoplanetes confirmees:</h2></p><p class="test5 w3-center"  href="#" id="text"> ${data.confirmedPlanets}</p></div>
+                            <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans  test"> <p><h2>Planetes Habitables confirmees:</h2></p><p class="test5  w3-center" href="#" id="text"> ${data.confirmedHabitablePlanets}</p></div>
+                            <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans  test"><p><h2>Lunes habitables:</h2></p><p  class="test5 w3-center" href="#" id="text"> ${data.possibleHabitableMoons}</p></div>             
+                                                       
+                            `;
+
+                        } catch (error) {
+                            console.error(error);
+                            document.getElementById("statisticsData").innerHTML = '<div class="w3 - text - khaki w3 - wide w3 - block w3 - serif">Failed to fetch data.</div>';
+                        }
+                    }
+
+
+                    fetchData();
+                </script>
+
+
+                <script>
+                    async function fetchData() {
+                        const apiUrl = "https://corsproxy.io/?https://exoplanethunter.com/api/Chart/PlanetTypes?type=0";
+
+                        try {
+                            const typeresponse = await fetch(apiUrl);
+                            const typedata = await typeresponse.json();
+
+                            const typeList = document.createElement('ul');
+                            typedata.forEach(data => { // Change 'typedata.results' to 'typedata'
+                                const typeItem = document.createElement('div');
+                                typeItem.innerHTML = `
+                                <br>
+                                <div class="w3-mobile w3-row w3-auto w3-center"><p class=" w3-animate-zoom w3-center w3-container   w3-sand   artout trans"> <a class="test "><u> ${data.title} </u></a><br><a class=" w3-center w3-text-red test5"> ${data.value}</a></p></div>
+                                `;
+
+                                typeList.appendChild(typeItem);
+                            });
+
+                            const dataContainer = document.getElementById("data");
+                            dataContainer.innerHTML = '';
+                            dataContainer.appendChild(typeList);
+                        } catch (error) {
+                            console.error(error);
+                            document.getElementById("data").innerHTML = "Failed to fetch data.";
+                        }
+                    }
+
+                    fetchData();
+                </script>
+
+                <div id="data">
+                    <p>Loading data...</p>
+                </div><br>
+                <div>
+                    <p><img id="myImg" src="exo.jpeg" height="110%" width="110%"></img>
+
+                        <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                        <div id="caption"></div>
+                    </div>
+
+                    <script>
+                        // Get the modal
+                        var modal = document.getElementById('myModal');
+
+                        // Get the image and insert it inside the modal - use its "alt" text as a caption
+                        var img = document.getElementById('myImg');
+                        var modalImg = document.getElementById("img01");
+                        var captionText = document.getElementById("caption");
+                        img.onclick = function () {
+                            modal.style.display = "block";
+                            modalImg.src = this.src;
+                            captionText.innerHTML = this.alt;
+                        }
+
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
+
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function () {
+                            modal.style.display = "none";
+                        }
+                    </script>
+                    </p>
+                </div>
+                <div>
+                    <p class="text-bl">source: <a href="https://phl.upr.edu/home" class="w3-tag w3-small">ARECIBO
+                            Planetary Hability
+                            Laboratory</a></p>
+                </div>
+                <script>
+                    includeHTML();
+                </script>
+            </div>
+        </div>
+
+    </body>
+
+
+</html>

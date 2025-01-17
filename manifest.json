@@ -1,0 +1,20 @@
+{
+  "background_color": "#060606",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "name": "space-info",
+  "orientation": "any",
+  "scope": "http://space-info.free.nf/",
+  "short_name": "space-info",
+  "start_url": "http://space-info.free.nf/",
+  "theme_color": "#ffffff",
+  "id": "space-info",
+  "description": "space-info notifier",
+  "lang": "fr",
+  "categories": [
+    "education",
+    "entertainment",
+    "navigation",
+    "news"
+  ]
+}
