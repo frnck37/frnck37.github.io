@@ -263,35 +263,50 @@
                 </div>
 
 
+<script>
+               async function fetchData() {
+    const apiUrl = "https://corsproxy.io/?https://exoplanethunter.com/api/Statistics";
 
-                <script>
-                    async function fetchData() {
-                       const apiUrl = "https://cors-anywhere.herokuapp.com/https://exoplanethunter.com/api/Statistics";
+    try {
+        const response = await fetch(apiUrl);
 
-                        try {
-                            const response = await fetch(apiUrl);
-                            const data = await response.json();
+        // Log the raw response to check for issues
+        const responseText = await response.text();
+        console.log(responseText);
 
-                            const statisticsContainer = document.getElementById("statisticsData");
-                            statisticsContainer.innerHTML = `
-                                     
-                            <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans  test"><p><h2>Exoplanetes confirmees:</h2></p><p class="test5 w3-center"  href="#" id="text"> ${data.confirmedPlanets}</p></div>
-                            <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans  test"> <p><h2>Planetes Habitables confirmees:</h2></p><p class="test5  w3-center" href="#" id="text"> ${data.confirmedHabitablePlanets}</p></div>
-                            <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans  test"><p><h2>Lunes habitables:</h2></p><p  class="test5 w3-center" href="#" id="text"> ${data.possibleHabitableMoons}</p></div>             
-                                                       
-                            `;
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
 
-                        } catch (error) {
-                            console.error(error);
-                            document.getElementById("statisticsData").innerHTML = '<div class="w3 - text - khaki w3 - wide w3 - block w3 - serif">Failed to fetch data.</div>';
-                        }
-                    }
+        const data = JSON.parse(responseText); // Ensure valid JSON parsing
 
+        const statisticsContainer = document.getElementById("statisticsData");
+        statisticsContainer.innerHTML = `
+            <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans test">
+                <p><h2>Exoplanetes confirmees:</h2></p>
+                <p class="test5 w3-center" id="text">${data.confirmedPlanets}</p>
+            </div>
+            <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans test">
+                <p><h2>Planetes Habitables confirmees:</h2></p>
+                <p class="test5 w3-center" id="text">${data.confirmedHabitablePlanets}</p>
+            </div>
+            <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans test">
+                <p><h2>Lunes habitables:</h2></p>
+                <p class="test5 w3-center" id="text">${data.possibleHabitableMoons}</p>
+            </div>
+        `;
+    } catch (error) {
+        console.error(error);
+        document.getElementById("statisticsData").innerHTML = `
+            <div class="w3-text-khaki w3-wide w3-block w3-serif">
+                Failed to fetch data.
+            </div>
+        `;
+    }
+}
 
-                    fetchData();
-                </script>
-
-
+fetchData();
+</script>
                 <script>
                     async function fetchData() {
                         const apiUrl = "https://corsproxy.io/?https://exoplanethunter.com/api/Chart/PlanetTypes?type=0";
