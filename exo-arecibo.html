@@ -190,6 +190,42 @@
                 border-radius: 2rem;
                 margin: 8px;
             }
+		 .glow-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            text-shadow: 0 0 5px cyan;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .glow-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px cyan;
+        }
+
+        .glow-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: cyan;
+            text-shadow: 0 0 15px cyan, 0 0 30px blue;
+            animation: glow-pulse 1.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes glow-pulse {
+            0% { text-shadow: 0 0 15px cyan, 0 0 30px blue; }
+            100% { text-shadow: 0 0 25px cyan, 0 0 40px blue; }
+        }
+
+        .w3-animate-zoom {
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
         </style>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -290,17 +326,19 @@
         // Debugging: Check parsed data
         console.log("Parsed Data:", data);
 document.getElementById("statisticsData").innerHTML = `
-    <div class="w3-container w3-sand">
-        <p><h2>Exoplanètes confirmées:</h2></p>
-        <p class="test5 w3-center">${data.confirmedPlanets ?? "N/A"}</p>
+    <div class="w3-container glow-box w3-animate-zoom">
+        <h2>✨ Exoplanètes confirmées: ✨</h2>
+        <p class="glow-number" id="confirmedPlanets">0</p>
     </div>
-    <div class="w3-container w3-sand">
-        <p><h2>Planètes Habitables confirmées:</h2></p>
-        <p class="test5 w3-center">${data.confirmedHabitablePlanets ?? "N/A"}</p>
+
+    <div class="w3-container glow-box w3-animate-zoom">
+        <h2>🌍 Planètes Habitables confirmées: 🌍</h2>
+        <p class="glow-number" id="confirmedHabitablePlanets">0</p>
     </div>
-    <div class="w3-container w3-sand">
-        <p><h2>Lunes habitables:</h2></p>
-        <p class="test5 w3-center">${data.possibleHabitableMoons ?? "N/A"}</p>
+
+    <div class="w3-container glow-box w3-animate-zoom">
+        <h2>🌙 Lunes habitables: 🌙</h2>
+        <p class="glow-number" id="possibleHabitableMoons">0</p>
     </div>
 `;
     } catch (error) {
@@ -308,7 +346,27 @@ document.getElementById("statisticsData").innerHTML = `
         document.getElementById("statisticsData").innerHTML = `<div class="w3-text-khaki">Error fetching data.</div>`;
     }
 }
+// Animate the numbers increasing
+        function animateNumbers(id, targetValue) {
+            let current = 0;
+            const increment = Math.ceil(targetValue / 100); 
+            const updateInterval = setInterval(() => {
+                current += increment;
+                if (current >= targetValue) {
+                    document.getElementById(id).innerText = targetValue;
+                    clearInterval(updateInterval);
+                } else {
+                    document.getElementById(id).innerText = current;
+                }
+            }, 20);
+        }
 
+        // Apply animations
+        window.onload = function () {
+            animateNumbers("confirmedPlanets", data.confirmedPlanets);
+            animateNumbers("confirmedHabitablePlanets", data.confirmedHabitablePlanets);
+            animateNumbers("possibleHabitableMoons", data.possibleHabitableMoons);
+        };
 fetchData();
 </script>
                 
