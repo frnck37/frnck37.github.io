@@ -284,18 +284,18 @@
         console.log("Parsed Data:", data);
 
         document.getElementById("statisticsData").innerHTML = `
-            <div class="w3-container w3-sand">
-                <p><h2>Exoplanètes confirmées:</h2></p>
-                <p class="test5 w3-center">${data.confirmedPlanets || "N/A"}</p>
-            </div>
-            <div class="w3-container w3-sand">
-                <p><h2>Planètes Habitables confirmées:</h2></p>
-                <p class="test5 w3-center">${data.confirmedHabitablePlanets || "N/A"}</p>
-            </div>
-            <div class="w3-container w3-sand">
-                <p><h2>Lunes habitables:</h2></p>
-                <p class="test5 w3-center">${data.possibleHabitableMoons || "N/A"}</p>
-            </div>
+    <div class="w3-container w3-sand">
+        <p><h2>Exoplanètes confirmées:</h2></p>
+        <p class="test5 w3-center">${data.confirmedPlanets !== undefined ? data.confirmedPlanets : "N/A"}</p>
+    </div>
+    <div class="w3-container w3-sand">
+        <p><h2>Planètes Habitables confirmées:</h2></p>
+        <p class="test5 w3-center">${data.confirmedHabitablePlanets !== undefined ? data.confirmedHabitablePlanets : "N/A"}</p>
+    </div>
+    <div class="w3-container w3-sand">
+        <p><h2>Lunes habitables:</h2></p>
+        <p class="test5 w3-center">${data.possibleHabitableMoons !== undefined ? data.possibleHabitableMoons : "N/A"}</p>
+    </div>
         `;
     } catch (error) {
         console.error(error);
