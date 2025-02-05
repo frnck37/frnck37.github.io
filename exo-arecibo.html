@@ -264,55 +264,44 @@
 
 
 <script>
-              async function fetchData() {
-    const apiUrl = "https://api.allorigins.win/get?url=https://exoplanethunter.com/api/Statistics";
+             async function fetchData() {
+    const apiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://exoplanethunter.com/api/Statistics");
 
     try {
         const response = await fetch(apiUrl);
-        const contentType = response.headers.get('Content-Type');
-
-        // Log the raw response and content type
         const responseText = await response.text();
-        console.log("Response Text:", responseText);
-        console.log("Content-Type:", contentType);
+        console.log("Raw Response:", responseText); // Debugging
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        // Check if the response is JSON
-        if (contentType && contentType.includes('application/json')) {
-            const data = JSON.parse(responseText);  // Ensure valid JSON parsing
+        // Parse JSON response correctly
+        const jsonResponse = JSON.parse(responseText);
+        const data = JSON.parse(jsonResponse.contents); // AllOrigins wraps data in "contents"
 
-            const statisticsContainer = document.getElementById("statisticsData");
-            statisticsContainer.innerHTML = `
-                <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans test">
-                    <p><h2>Exoplanetes confirmees:</h2></p>
-                    <p class="test5 w3-center" id="text">${data.confirmedPlanets}</p>
-                </div>
-                <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans test">
-                    <p><h2>Planetes Habitables confirmees:</h2></p>
-                    <p class="test5 w3-center" id="text">${data.confirmedHabitablePlanets}</p>
-                </div>
-                <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans test">
-                    <p><h2>Lunes habitables:</h2></p>
-                    <p class="test5 w3-center" id="text">${data.possibleHabitableMoons}</p>
-                </div>
-            `;
-        } else {
-            throw new Error('Response is not JSON or failed to fetch.');
-        }
-    } catch (error) {
-        console.error(error);
         document.getElementById("statisticsData").innerHTML = `
-            <div class="w3-text-khaki w3-wide w3-block w3-serif">
-                Failed to fetch data.
+            <div class="w3-container w3-sand">
+                <p><h2>Exoplanètes confirmées:</h2></p>
+                <p class="test5 w3-center">${data.confirmedPlanets || "N/A"}</p>
+            </div>
+            <div class="w3-container w3-sand">
+                <p><h2>Planètes Habitables confirmées:</h2></p>
+                <p class="test5 w3-center">${data.confirmedHabitablePlanets || "N/A"}</p>
+            </div>
+            <div class="w3-container w3-sand">
+                <p><h2>Lunes habitables:</h2></p>
+                <p class="test5 w3-center">${data.possibleHabitableMoons || "N/A"}</p>
             </div>
         `;
+    } catch (error) {
+        console.error(error);
+        document.getElementById("statisticsData").innerHTML = `<div class="w3-text-khaki">Error fetching data.</div>`;
     }
 }
 
 fetchData();
+
 </script>
                 <script>
                     async function fetchData() {
