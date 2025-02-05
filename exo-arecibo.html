@@ -312,62 +312,70 @@
 
     try {
         const response = await fetch(apiUrl);
-        const responseText = await response.text();
-        console.log("Raw Response:", responseText); // Debugging
-
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        
+        const jsonResponse = await response.json();
+        const data = JSON.parse(jsonResponse.contents);
+        
+        // Create the HTML structure
+        document.getElementById("statisticsData").innerHTML = `
+            <div class="w3-container glow-box w3-animate-zoom">
+                <h2>✨ Exoplanètes confirmées: ✨</h2>
+                <p class="glow-number" id="confirmedPlanets">0</p>
+            </div>
 
-        // Parse JSON response correctly
-        const jsonResponse = JSON.parse(responseText);
-        const data = JSON.parse(jsonResponse.contents); // Fix: Extract the actual data
+            <div class="w3-container glow-box w3-animate-zoom">
+                <h2>🌍 Planètes Habitables confirmées: 🌍</h2>
+                <p class="glow-number" id="confirmedHabitablePlanets">0</p>
+            </div>
 
-        // Debugging: Check parsed data
-        console.log("Parsed Data:", data);
-document.getElementById("statisticsData").innerHTML = `
-    <div class="w3-container glow-box w3-animate-zoom">
-        <h2>✨ Exoplanètes confirmées: ✨</h2>
-        <p class="glow-number" id="confirmedPlanets">0</p>
-    </div>
+            <div class="w3-container glow-box w3-animate-zoom">
+                <h2>🌙 Lunes habitables: 🌙</h2>
+                <p class="glow-number" id="possibleHabitableMoons">0</p>
+            </div>
+        `;
 
-    <div class="w3-container glow-box w3-animate-zoom">
-        <h2>🌍 Planètes Habitables confirmées: 🌍</h2>
-        <p class="glow-number" id="confirmedHabitablePlanets">0</p>
-    </div>
+        // Animate the numbers
+        animateNumbers("confirmedPlanets", data.confirmedPlanets);
+        animateNumbers("confirmedHabitablePlanets", data.confirmedHabitablePlanets);
+        animateNumbers("possibleHabitableMoons", data.possibleHabitableMoons);
 
-    <div class="w3-container glow-box w3-animate-zoom">
-        <h2>🌙 Lunes habitables: 🌙</h2>
-        <p class="glow-number" id="possibleHabitableMoons">0</p>
-    </div>
-`;
     } catch (error) {
-        console.error(error);
-        document.getElementById("statisticsData").innerHTML = `<div class="w3-text-khaki">Error fetching data.</div>`;
+        console.error("Error:", error);
+        document.getElementById("statisticsData").innerHTML = `
+            <div class="w3-text-khaki">Error fetching data: ${error.message}</div>
+        `;
     }
 }
-// Animate the numbers increasing
-        function animateNumbers(id, targetValue) {
-            let current = 0;
-            const increment = Math.ceil(targetValue / 100); 
-            const updateInterval = setInterval(() => {
-                current += increment;
-                if (current >= targetValue) {
-                    document.getElementById(id).innerText = targetValue;
-                    clearInterval(updateInterval);
-                } else {
-                    document.getElementById(id).innerText = current;
-                }
-            }, 20);
-        }
 
-        // Apply animations
-        window.onload = function () {
-            animateNumbers("confirmedPlanets", data.confirmedPlanets);
-            animateNumbers("confirmedHabitablePlanets", data.confirmedHabitablePlanets);
-            animateNumbers("possibleHabitableMoons", data.possibleHabitableMoons);
-        };
-fetchData();
+// Animation function for the numbers
+function animateNumbers(id, targetValue) {
+    if (!targetValue || isNaN(targetValue)) {
+        document.getElementById(id).innerText = "N/A";
+        return;
+    }
+
+    let current = 0;
+    const increment = Math.ceil(targetValue / 100);
+    const duration = 2000; // 2 seconds for the animation
+    const steps = 50;
+    const stepTime = duration / steps;
+
+    const updateInterval = setInterval(() => {
+        current += increment;
+        if (current >= targetValue) {
+            document.getElementById(id).innerText = targetValue;
+            clearInterval(updateInterval);
+        } else {
+            document.getElementById(id).innerText = current;
+        }
+    }, stepTime);
+}
+
+// Call fetchData when the page loads
+document.addEventListener('DOMContentLoaded', fetchData);
 </script>
                 
                 <script>
