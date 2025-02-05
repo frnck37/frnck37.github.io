@@ -264,7 +264,7 @@
 
 
 <script>
-             async function fetchData() {
+           async function fetchData() {
     const apiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://exoplanethunter.com/api/Statistics");
 
     try {
@@ -278,7 +278,10 @@
 
         // Parse JSON response correctly
         const jsonResponse = JSON.parse(responseText);
-        const data = JSON.parse(jsonResponse.contents); // AllOrigins wraps data in "contents"
+        const data = JSON.parse(jsonResponse.contents); // Fix: Extract the actual data
+
+        // Debugging: Check parsed data
+        console.log("Parsed Data:", data);
 
         document.getElementById("statisticsData").innerHTML = `
             <div class="w3-container w3-sand">
