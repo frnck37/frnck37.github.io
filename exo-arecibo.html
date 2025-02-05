@@ -304,6 +304,7 @@ document.getElementById("statisticsData").innerHTML = `
 
 fetchData();
 </script>
+                
                 <script>
                     async function fetchData() {
                         const apiUrl = "https://corsproxy.io/?https://exoplanethunter.com/api/Chart/PlanetTypes?type=0";
@@ -316,18 +317,9 @@ fetchData();
                             typedata.forEach(data => { // Change 'typedata.results' to 'typedata'
                                 const typeItem = document.createElement('div');
                                 typeItem.innerHTML = `
-                                <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans test">
-                <p><h2>Exoplanetes confirmees:</h2></p>
-                <p class="test5 w3-center" id="text">${data.confirmedPlanets}</p>
-            </div>
-            <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans test">
-                <p><h2>Planetes Habitables confirmees:</h2></p>
-                <p class="test5 w3-center" id="text">${data.confirmedHabitablePlanets}</p>
-            </div>
-            <div class="w3-row w3-auto w3-container w3-sand w3-animate-zoom artout trans test">
-                <p><h2>Lunes habitables:</h2></p>
-                <p class="test5 w3-center" id="text">${data.possibleHabitableMoons}</p>
-            </div>;
+                                <br>
+                                <div class="w3-mobile w3-row w3-auto w3-center"><p class=" w3-animate-zoom w3-center w3-container   w3-sand   artout trans"> <a class="test "><u> ${data.title} </u></a><br><a class=" w3-center w3-text-red test5"> ${data.value}</a></p></div>
+                                `;
 
                                 typeList.appendChild(typeItem);
                             });
