@@ -360,7 +360,7 @@
                             
                             <img class="astronaut-image" src="${astronaut.profile_image || 'cosmo.png'}" alt="${astronaut.name}"></p>
                       
-                        <p><a class="w3-tag w3-blue w3-round-large w3-greyscale"><strong><u>Nationality:</u></strong></a> ${astronaut.nationality}</p>
+                        <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Nationality:</u></strong></a> ${astronaut.nationality}</p>
                         <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Age:</u></strong></a> ${astronaut.age} years</p>
                         <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Agency:</u></strong></a> ${astronaut.agency.name}</p>
                         <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Spacecraft:</u></strong></a> ${astronaut.agency.spacecraft}</p>
@@ -370,14 +370,14 @@
                         
                         <div id="Demo${count}" class="w3-container w3-hide">
                             <p class="w3-display-container w3-tag w3-animate-right"><strong><i><u>Bio:</u></i></strong><a class="bio-text"> ${astronaut.bio}</a><br></p>
-                            <strong><a class="w3-tag w3-Indigo w3-round-large">Nombres de vols:</a></strong> ${astronaut.flights_count}<br>
-                            <strong><a class="w3-tag w3-Indigo w3-round-large">Spacewalks:</a></strong> ${astronaut.spacewalks_count}<br>
-                            <strong><a class="w3-tag w3-Indigo w3-round-large">1er vol:</a></strong> ${astronaut.first_flight}<br>
-                            <strong><a class="w3-tag w3-Indigo w3-round-large">Temps total dans l'espace:</a></strong> ${astronaut.time_in_space}<br>
-                            <strong><a class="w3-tag w3-Indigo w3-round-large">Wiki:</a></strong> <a href="${astronaut.wiki}" target="_blank">${astronaut.wiki}</a><br>
-                            <strong><a class="w3-tag w3-Indigo w3-round-large">Twitter:</a></strong> <a href="${astronaut.twitter}" target="_blank">${astronaut.twitter}</a><br>
-                            <strong><a class="w3-tag w3-Indigo w3-round-large">Instagram:</a></strong> <a href="${astronaut.Instagram}" target="_blank">${astronaut.Instagram}</a><br>
-                            <strong><a class="w3-tag w3-Indigo w3-round-large">Agence</a><strong> ${astronaut.agency.name} - (<i>${astronaut.agency.abbrev}</i>) - <strong><u><i>Type:</i></u></strong> ${astronaut.agency.type}<br>                            
+                            <strong><a class="w3-tag w3-blue w3-round-large">Nombres de vols:</a></strong> ${astronaut.flights_count}<br>
+                            <strong><a class="w3-tag w3-blue w3-round-large">Spacewalks:</a></strong> ${astronaut.spacewalks_count}<br>
+                            <strong><a class="w3-tag w3-blue w3-round-large">1er vol:</a></strong> ${astronaut.first_flight}<br>
+                            <strong><a class="w3-tag w3-blue w3-round-large">Temps total dans l'espace:</a></strong> ${astronaut.time_in_space}<br>
+                            <strong><a class="w3-tag w3-blue w3-round-large">Wiki:</a></strong> <a href="${astronaut.wiki}" target="_blank">${astronaut.wiki}</a><br>
+                            <strong><a class="w3-tag w3-blue w3-round-large">Twitter:</a></strong> <a href="${astronaut.twitter}" target="_blank">${astronaut.twitter}</a><br>
+                            <strong><a class="w3-tag w3-blue w3-round-large">Instagram:</a></strong> <a href="${astronaut.Instagram}" target="_blank">${astronaut.Instagram}</a><br>
+                            <strong><a class="w3-tag w3-blue w3-round-large">Agence</a><strong> ${astronaut.agency.name} - (<i>${astronaut.agency.abbrev}</i>) - <strong><u><i>Type:</i></u></strong> ${astronaut.agency.type}<br>                            
                             <p class="w3-right-align"><span data-z data-z-depth="40px" z-perspective="none" z-depth="60px"><img class="logo-image w3-center" src="${astronaut.agency.logo_url}"></span></p> 
                             </div>
                             `;
