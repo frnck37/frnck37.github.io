@@ -352,7 +352,7 @@
 
 // Animation function for the numbers
 function animateNumbers(id, targetValue) {
-    if (!targetValue || isNaN(targetValue)) {
+    if (targetValue === undefined || targetValue === null || isNaN(targetValue)) {
         document.getElementById(id).innerText = "N/A";
         return;
     }
