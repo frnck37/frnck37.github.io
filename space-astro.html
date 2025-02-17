@@ -356,6 +356,9 @@
             const firstFlightDate = new Date(astronaut.first_flight);
             const formattedFirstFlight = firstFlightDate.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
+            // Debugging: Log the time_in_space value
+            console.log(`Astronaut: ${astronaut.name}, Time in Space: ${astronaut.time_in_space}`);
+
             // Format the time in space
             let formattedTimeInSpace = "N/A";
             const totalMinutes = parseInt(astronaut.time_in_space, 10);
@@ -365,7 +368,6 @@
                 const minutes = totalMinutes % 60;
                 formattedTimeInSpace = `${days} jours ${hours} heures ${minutes} minutes`;
             }
-
             card.innerHTML = `
                 <p class="name">
                     <a class="w3-badge w3-right-align glow-text"><strong>${count--}</strong></a>
