@@ -368,18 +368,18 @@
                        
                         <button onclick="toggleAccordion('Demo${count}')" class="w3-container w3-ripple w3-hover w3-border-deep-orange w3-pale-blue w3-text-green w3-tiny w3-round-xxlarge"><p>>Infos>></p></button> 
                         
-                          <div id="Demo${count}" class="w3-container w3-hide">
-    <p class="w3-display-container w3-tag w3-animate-right"><strong><i><u>Bio: </u></i></strong><a class="bio-text"> ${astronaut.bio}</a></p>
-    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Nombres de vols: </a></strong> ${astronaut.flights_count}</p>
-    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Spacewalks: </a></strong> ${astronaut.spacewalks_count}</p>
-    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">1er vol: </a></strong> ${astronaut.first_flight}</p>
-    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Temps total dans l'espace: </a></strong> ${astronaut.time_in_space}</p>
-    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Wiki: </a></strong> <a href="${astronaut.wiki}" target="_blank">${astronaut.wiki}</a></p>
-    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Twitter: </a></strong> <a href="${astronaut.twitter}" target="_blank">${astronaut.twitter}</a></p>
-    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Instagram: </a></strong> <a href="${astronaut.Instagram}" target="_blank">${astronaut.Instagram}</a></p>
-    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Agence: </a></strong> ${astronaut.agency.name} - (<i>${astronaut.agency.abbrev}</i>) - <strong><u><i>Type:</i></u></strong> ${astronaut.agency.type}</p>
-    <p class="w3-right-align"><span data-z data-z-depth="40px" z-perspective="none" z-depth="60px"><img class="logo-image w3-center" src="${astronaut.agency.logo_url}"></span></p>
-</div>
+                                   <div id="Demo${count}" class="w3-container w3-hide">
+                        <p class="w3-display-container w3-tag w3-animate-right"><strong><i><u>Bio: </u></i></strong><a class="bio-text"> ${astronaut.bio}</a></p>
+                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Nombres de vols: </a></strong> ${astronaut.flights_count}</p>
+                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Spacewalks: </a></strong> ${astronaut.spacewalks_count}</p>
+                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">1er vol: </a></strong> ${formattedFirstFlight}</p>
+                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Temps total dans l'espace: </a></strong> ${formattedTimeInSpace}</p>
+                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Wiki: </a></strong> <a href="${astronaut.wiki}" target="_blank">${astronaut.wiki}</a></p>
+                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Twitter: </a></strong> <a href="${astronaut.twitter}" target="_blank">${astronaut.twitter}</a></p>
+                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Instagram: </a></strong> <a href="${astronaut.Instagram}" target="_blank">${astronaut.Instagram}</a></p>
+                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Agence: </a></strong> ${astronaut.agency.name} - (<i>${astronaut.agency.abbrev}</i>) - <strong><u><i>Type:</i></u></strong> ${astronaut.agency.type}</p>
+                        <p class="w3-right-align"><span data-z data-z-depth="40px" z-perspective="none" z-depth="60px"><img class="logo-image w3-center" src="${astronaut.agency.logo_url}"></span></p>
+                    </div>
                             `;
                             container.appendChild(card);
                         });
