@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Astronautes en Vol</title>
+        <title>Astronauts in flights</title>
 
         <link rel="stylesheet" href="./w3.css" type="text/css">
         <script src="./jquery.min.js"></script>
@@ -317,7 +317,7 @@
         <div class="gtranslate_wrapper"></div>
         <script>
             window.gtranslateSettings = {
-                "default_language": "fr",
+                "default_language": "en",
                 "native_language_names": true,
                 "wrapper_selector": ".gtranslate_wrapper",
                 "flag_size": 16,
@@ -333,7 +333,7 @@
         <div id="main">
             <br>
             <div class="container">
-                <h1 class="glow-text">Astronautes en Vol</h1>
+                <h1 class="glow-text">Astronauts in flights</h1>
                 <div id="astronautsData">Loading...</div>
             </div>
 
@@ -354,7 +354,7 @@
 
             // Format the first flight date
             const firstFlightDate = new Date(astronaut.first_flight);
-            const formattedFirstFlight = firstFlightDate.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            const formattedFirstFlight = firstFlightDate.toLocaleDateString('en-EN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
             // Debugging: Log the time_in_space value
             console.log(`Astronaut: ${astronaut.name}, Time in Space: ${astronaut.time_in_space}`);
@@ -373,21 +373,21 @@
                     <a class="w3-badge w3-right-align glow-text"><strong>${count--}</strong></a>
                     <a class="test"> -  ${astronaut.name}</a><br>
                     <img class="astronaut-image" src="${astronaut.profile_image || 'cosmo.png'}" alt="${astronaut.name}"></p>
-                <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Nationalité:</u></strong></a> ${astronaut.nationality}</p>
+                <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Nationality:</u></strong></a> ${astronaut.nationality}</p>
                 <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Age:</u></strong></a> ${astronaut.age} years</p>
-                <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Agence:</u></strong></a> ${astronaut.agency.name}</p>
-                <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Vaisseau:</u></strong></a> ${astronaut.agency.spacecraft}</p>
-                <button onclick="toggleAccordion('Demo${count}')" class="w3-container w3-ripple w3-hover w3-border-deep-orange w3-pale-blue w3-text-green w3-tiny w3-round-xxlarge"><p>>Infos>></p></button>
+                <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Agency:</u></strong></a> ${astronaut.agency.name}</p>
+                <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Spacecraft:</u></strong></a> ${astronaut.agency.spacecraft}</p>
+                <button onclick="toggleAccordion('Demo${count}')" class="w3-container w3-ripple w3-hover w3-border-deep-orange w3-pale-blue w3-text-green w3-tiny w3-round-xxlarge"><p>Infos >>></p></button>
                 <div id="Demo${count}" class="w3-container w3-hide">
                     <p class="w3-display-container w3-tag w3-animate-right"><strong><i><u>Bio: </u></i></strong><a class="bio-text"> ${astronaut.bio}</a></p>
-                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Nombres de vols: </a></strong> ${astronaut.flights_count}</p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Flights count: </a></strong> ${astronaut.flights_count}</p>
                     <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Spacewalks: </a></strong> ${astronaut.spacewalks_count}</p>
-                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">1er vol: </a></strong> ${formattedFirstFlight}</p>
-                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Temps total dans l'espace: </a></strong> ${formattedTimeInSpace}</p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">1st flight: </a></strong> ${formattedFirstFlight}</p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Total time in space: </a></strong> ${formattedTimeInSpace}</p>
                     <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Wiki: </a></strong> <a href="${astronaut.wiki}" target="_blank">${astronaut.name}</a></p>
                     <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Twitter: </a></strong> <a href="${astronaut.twitter}" target="_blank">${astronaut.twitter}</a></p>
                     <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Instagram: </a></strong> <a href="${astronaut.Instagram}" target="_blank">${astronaut.Instagram}</a></p>
-                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Agence: </a></strong> ${astronaut.agency.name} - (<i>${astronaut.agency.abbrev}</i>) - <strong><u><i>Type:</i></u></strong> ${astronaut.agency.type}</p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Agency: </a></strong> ${astronaut.agency.name} - (<i>${astronaut.agency.abbrev}</i>) - <strong><u><i>Type:</i></u></strong> ${astronaut.agency.type}</p>
                     <p class="w3-right-align"><span data-z data-z-depth="40px" z-perspective="none" z-depth="60px"><img class="logo-image w3-center" src="${astronaut.agency.logo_url}"></span></p>
                 </div>
             `;
