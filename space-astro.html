@@ -338,7 +338,7 @@
             </div>
 
             <script>
-                async function fetchData() {
+               async function fetchData() {
     const apiUrl = "https://corsproxy.io/?https://ll.thespacedevs.com/2.2.0/astronaut/?in_space=true&type__id=&nationality=&date_of_birth=&date_of_birth__lt=&date_of_birth__lte=&date_of_birth__gt=&date_of_birth__gte=&profile_image=&profile_image__isnull=&bio=&bio__isnull=";
     try {
         const response = await fetch(apiUrl);
@@ -365,64 +365,59 @@
                 const minutes = totalMinutes % 60;
                 formattedTimeInSpace = `${days} jours ${hours} heures ${minutes} minutes`;
             }
-               
-                            card.innerHTML = `
-                       
-                        <p class="name">
-                             <a class="w3-badge w3-right-align glow-text"><strong>${count--}</strong></a>                            
-                            <a class="test"> -  ${astronaut.name}</a><br>
-                            
-                            
-                            <img class="astronaut-image" src="${astronaut.profile_image || 'cosmo.png'}" alt="${astronaut.name}"></p>
-                      
-                        <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Nationalité:</u></strong></a> ${astronaut.nationality}</p>
-                        <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Age:</u></strong></a> ${astronaut.age} years</p>
-                        <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Agence:</u></strong></a> ${astronaut.agency.name}</p>
-                        <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Vaisseau:</u></strong></a> ${astronaut.agency.spacecraft}</p>
-                       
-                       
-                        <button onclick="toggleAccordion('Demo${count}')" class="w3-container w3-ripple w3-hover w3-border-deep-orange w3-pale-blue w3-text-green w3-tiny w3-round-xxlarge"><p>>Infos>></p></button> 
-                        
-                                   <div id="Demo${count}" class="w3-container w3-hide">
-                        <p class="w3-display-container w3-tag w3-animate-right"><strong><i><u>Bio: </u></i></strong><a class="bio-text"> ${astronaut.bio}</a></p>
-                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Nombres de vols: </a></strong> ${astronaut.flights_count}</p>
-                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Spacewalks: </a></strong> ${astronaut.spacewalks_count}</p>
-                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">1er vol: </a></strong> ${formattedFirstFlight}</p>
-                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Temps total dans l'espace: </a></strong> ${formattedTimeInSpace}</p>
-                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Wiki: </a></strong> <a href="${astronaut.wiki}" target="_blank">${astronaut.wiki}</a></p>
-                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Twitter: </a></strong> <a href="${astronaut.twitter}" target="_blank">${astronaut.twitter}</a></p>
-                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Instagram: </a></strong> <a href="${astronaut.Instagram}" target="_blank">${astronaut.Instagram}</a></p>
-                        <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Agence: </a></strong> ${astronaut.agency.name} - (<i>${astronaut.agency.abbrev}</i>) - <strong><u><i>Type:</i></u></strong> ${astronaut.agency.type}</p>
-                        <p class="w3-right-align"><span data-z data-z-depth="40px" z-perspective="none" z-depth="60px"><img class="logo-image w3-center" src="${astronaut.agency.logo_url}"></span></p>
-                    </div>
-                            `;
-                            container.appendChild(card);
-                        });
-                        document.querySelectorAll('.ztext').forEach(element => {
-                            new Ztextify(element);
-                        });
-                    } catch (error) {
-                        console.error("Error fetching data:", error);
-                        document.getElementById("astronautsData").innerText = "Failed to fetch data.";
-                    }
-                }
 
-                function toggleAccordion(id) {
-                    const x = document.getElementById(id);
-                    if (x.classList.contains("w3-show")) {
-                        x.classList.remove("w3-show");
-                    } else {
-                        x.classList.add("w3-show");
-                    }
-                }
-                function ztextify() {
-                    const elements = document.querySelectorAll('.ztext');
-                    elements.forEach(element => {
-                        ztextify(element);
-                    });
-                }
+            card.innerHTML = `
+                <p class="name">
+                    <a class="w3-badge w3-right-align glow-text"><strong>${count--}</strong></a>
+                    <a class="test"> -  ${astronaut.name}</a><br>
+                    <img class="astronaut-image" src="${astronaut.profile_image || 'cosmo.png'}" alt="${astronaut.name}"></p>
+                <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Nationalité:</u></strong></a> ${astronaut.nationality}</p>
+                <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Age:</u></strong></a> ${astronaut.age} years</p>
+                <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Agence:</u></strong></a> ${astronaut.agency.name}</p>
+                <p><a class="w3-tag w3-blue w3-round-large"><strong><u>Vaisseau:</u></strong></a> ${astronaut.agency.spacecraft}</p>
+                <button onclick="toggleAccordion('Demo${count}')" class="w3-container w3-ripple w3-hover w3-border-deep-orange w3-pale-blue w3-text-green w3-tiny w3-round-xxlarge"><p>>Infos>></p></button>
+                <div id="Demo${count}" class="w3-container w3-hide">
+                    <p class="w3-display-container w3-tag w3-animate-right"><strong><i><u>Bio: </u></i></strong><a class="bio-text"> ${astronaut.bio}</a></p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Nombres de vols: </a></strong> ${astronaut.flights_count}</p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Spacewalks: </a></strong> ${astronaut.spacewalks_count}</p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">1er vol: </a></strong> ${formattedFirstFlight}</p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Temps total dans l'espace: </a></strong> ${formattedTimeInSpace}</p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Wiki: </a></strong> <a href="${astronaut.wiki}" target="_blank">${astronaut.wiki}</a></p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Twitter: </a></strong> <a href="${astronaut.twitter}" target="_blank">${astronaut.twitter}</a></p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Instagram: </a></strong> <a href="${astronaut.Instagram}" target="_blank">${astronaut.Instagram}</a></p>
+                    <p><strong><a class="w3-tag w3-pale-blue w3-round-large">Agence: </a></strong> ${astronaut.agency.name} - (<i>${astronaut.agency.abbrev}</i>) - <strong><u><i>Type:</i></u></strong> ${astronaut.agency.type}</p>
+                    <p class="w3-right-align"><span data-z data-z-depth="40px" z-perspective="none" z-depth="60px"><img class="logo-image w3-center" src="${astronaut.agency.logo_url}"></span></p>
+                </div>
+            `;
+            container.appendChild(card);
+        });
 
-                fetchData();
+        document.querySelectorAll('.ztext').forEach(element => {
+            new Ztextify(element);
+        });
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        document.getElementById("astronautsData").innerText = "Failed to fetch data.";
+    }
+}
+
+function toggleAccordion(id) {
+    const x = document.getElementById(id);
+    if (x.classList.contains("w3-show")) {
+        x.classList.remove("w3-show");
+    } else {
+        x.classList.add("w3-show");
+    }
+}
+
+function ztextify() {
+    const elements = document.querySelectorAll('.ztext');
+    elements.forEach(element => {
+        ztextify(element);
+    });
+}
+
+fetchData();
             </script>
         </div>
 
