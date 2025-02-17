@@ -359,15 +359,15 @@
             // Debugging: Log the time_in_space value
             console.log(`Astronaut: ${astronaut.name}, Time in Space: ${astronaut.time_in_space}`);
 
-            // Format the time in space
-            let formattedTimeInSpace = "N/A";
-            const totalMinutes = parseInt(astronaut.time_in_space.replace(' minutes', ''), 10);
-            if (!isNaN(totalMinutes)) {
-                const days = Math.floor(totalMinutes / (24 * 60));
-                const hours = Math.floor((totalMinutes % (24 * 60)) / 60);
-                const minutes = totalMinutes % 60;
-                formattedTimeInSpace = `${days} jours ${hours} heures ${minutes} minutes`;
-            }
+           
+            // Parse and format time in space
+            const timeInSpace = astronaut.time_in_space.match(/P(?:(\d+)D)?T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+            const days = timeInSpace[1] ? parseInt(timeInSpace[1]) : 0;
+            const hours = timeInSpace[2] ? parseInt(timeInSpace[2]) : 0;
+            const minutes = timeInSpace[3] ? parseInt(timeInSpace[3]) : 0;
+            const seconds = timeInSpace[4] ? parseInt(timeInSpace[4]) : 0;
+            const formattedTimeInSpace = `${days} jours ${hours} heures ${minutes} minutes ${seconds} secondes`;
+
             card.innerHTML = `
                 <p class="name">
                     <a class="w3-badge w3-right-align glow-text"><strong>${count--}</strong></a>
