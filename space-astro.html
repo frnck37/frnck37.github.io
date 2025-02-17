@@ -351,6 +351,19 @@
                         data.results.forEach(astronaut => {
                             const card = document.createElement("div");
                             card.classList.add("astronaut-card");
+
+                             // Format the first flight date
+                const firstFlightDate = new Date(astronaut.first_flight);
+                const formattedFirstFlight = firstFlightDate.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+                // Format the time in space
+                const totalMinutes = astronaut.time_in_space;
+                const days = Math.floor(totalMinutes / (24 * 60));
+                const hours = Math.floor((totalMinutes % (24 * 60)) / 60);
+                const minutes = totalMinutes % 60;
+                const formattedTimeInSpace = `${days} jours ${hours} heures ${minutes} minutes`;
+
+               
                             card.innerHTML = `
                        
                         <p class="name">
