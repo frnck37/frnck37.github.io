@@ -357,11 +357,15 @@
                 const formattedFirstFlight = firstFlightDate.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
                 // Format the time in space
-                const totalMinutes = astronaut.time_in_space;
-                const days = Math.floor(totalMinutes / (24 * 60));
-                const hours = Math.floor((totalMinutes % (24 * 60)) / 60);
-                const minutes = totalMinutes % 60;
-                const formattedTimeInSpace = `${days} jours ${hours} heures ${minutes} minutes`;
+const totalMinutes = parseInt(astronaut.time_in_space, 10);
+if (!isNaN(totalMinutes)) {
+    const days = Math.floor(totalMinutes / (24 * 60));
+    const hours = Math.floor((totalMinutes % (24 * 60)) / 60);
+    const minutes = totalMinutes % 60;
+    const formattedTimeInSpace = `${days} jours ${hours} heures ${minutes} minutes`;
+} else {
+    const formattedTimeInSpace = "N/A";
+}
 
                
                             card.innerHTML = `
