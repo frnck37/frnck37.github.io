@@ -338,11 +338,19 @@
 
             <script>
                async function fetchData() {
-    const apiUrl = "https://corsproxy.io/?https://ll.thespacedevs.com/2.2.0/astronaut/?in_space=true&type__id=&nationality=&date_of_birth=&date_of_birth__lt=&date_of_birth__lte=&date_of_birth__gt=&date_of_birth__gte=&profile_image=&profile_image__isnull=&bio=&bio__isnull=";
+    const apiUrl =
+"https://corsproxy.io/?https://ll.thespacedevs.com/2.2.0/astronaut/?in_space=true&limit=100";
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
+        console.log(data);
         const container = document.getElementById("astronautsData");
+        
+        if (!data || !Array.isArray(data.results)) {
+    console.error("Unexpected API response:", data);
+    container.innerText = "No astronaut data available.";
+    return;
+}
 
         let count = data.count;
         container.innerHTML = "";
