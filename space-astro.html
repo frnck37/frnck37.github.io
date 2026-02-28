@@ -334,6 +334,28 @@
             <div class="container">
                 <h1 class="glow-text">Astronauts in flights</h1>
                 <div id="astronautsData">Loading...</div>
+                    <script>const words = ["Cosmonauts", "Astronauts", "Spationauts", "Taïkonauts"];
+                    let index = 0;
+
+                    const h1 = document.querySelector('.glow-text');
+                    // Wrap the changing word in a span
+                    h1.innerHTML = `<span id="changing-word">${words[0]}</span> in flights`;
+
+                    setInterval(() => {
+                        index = (index + 1) % words.length;
+                        const span = document.getElementById('changing-word');
+
+                        // Fade out
+                        span.style.transition = 'opacity 0.4s';
+                        span.style.opacity = '0';
+
+                        setTimeout(() => {
+                            span.textContent = words[index];
+                            span.style.opacity = '1'; // Fade in
+                        }, 400);
+
+                           }, 2000);
+                    </script>
             </div>
 
             <script>
